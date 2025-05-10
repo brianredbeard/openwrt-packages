@@ -16,24 +16,39 @@ return view.extend({
 
     render: function(data) {
         const path = L.env.dispatchpath;
-        let targetNode = E('div');
+        let renderPromise = null;
 
         if (path.length > 2 && path[2] === 'edit_server' && path[3]) {
-            this.renderServerForm(targetNode, path[3], false);
+            renderPromise = this.renderServerForm(path[3], false);
         } else if (path.length > 2 && path[2] === 'add_server') {
-            // For add, we first prompt for name, then redirect to edit view with new name
-            // This logic is better handled in the button click itself.
-            // For now, if directly navigated, show a message or redirect to list.
-            // Or, directly call a function that renders the form for a new section.
-             this.handleAddServer(targetNode);
+            // This path is hit if navigated to directly. The button click handles the prompt then navigates to edit.
+            // We return a placeholder; handleAddServer shows a prompt and then navigates.
+            let placeholderNode = E('div', {}, _('Initializing new server...'));
+            this.handleAddServer(placeholderNode); // placeholderNode isn't directly used by prompt, but good for consistency
+            return placeholderNode;
         } else if (path.length > 2 && path[2] === 'edit_client' && path[3]) {
-            this.renderClientForm(targetNode, path[3], false);
+            renderPromise = this.renderClientForm(path[3], false);
         } else if (path.length > 2 && path[2] === 'add_client') {
-            this.handleAddClient(targetNode);
+            // Similar to add_server
+            let placeholderNode = E('div', {}, _('Initializing new client...'));
+            this.handleAddClient(placeholderNode);
+            return placeholderNode;
         } else {
+            // Default to list view
+            let targetNode = E('div');
             this.renderListView(targetNode);
+            return targetNode; // Synchronous return for list view
         }
-        return targetNode;
+        
+        // If renderPromise is set, it means a form is being rendered asynchronously.
+        if (renderPromise) {
+            return renderPromise; // Return the promise from the form rendering function
+        } else {
+            // Should ideally not be reached if all paths are handled, but as a fallback:
+            let fallbackNode = E('div');
+            this.renderListView(fallbackNode);
+            return fallbackNode;
+        }
     },
 
     renderBackButton: function() {
@@ -169,8 +184,9 @@ return view.extend({
         }).catch(function() { /* Prompt dismissed */ });
     },
 
-    renderServerForm: function(container, sectionName, isAdd) {
+    renderServerForm: function(sectionName, isAdd) { // Removed container argument
         let m, s, o;
+        let formContainer = E('div'); // Create a new container for the form to be returned by the promise
 
         m = new form.Map('radius-mac',
             isAdd ? _('Add New RADIUS Server') : _('Edit RADIUS Server "%s"').format(sectionName),
@@ -251,14 +267,16 @@ return view.extend({
             this.renderBackButton()
         ]);
 
-        m.render().then(function(mapEl) {
-            container.innerHTML = ''; // Clear previous content (e.g., list view)
-            container.appendChild(mapEl);
-            container.appendChild(formActions);
+        return m.render().then(function(mapEl) {
+            formContainer.appendChild(mapEl);
+            formContainer.appendChild(formActions);
+            return formContainer; // Return the populated container as the resolution of the promise
         }).catch(function(e) {
-            container.innerHTML = '';
             L.ui.error(_('Failed to render server form: %s').format(e.message));
-            container.appendChild(this.renderBackButton());
+            // It's good practice to still return a DOM element in case of error for the view.
+            formContainer.appendChild(E('p', { 'class': 'cbi-error-message' }, _('Error rendering server form.')));
+            formContainer.appendChild(this.renderBackButton());
+            return formContainer;
         }.bind(this));
     },
 
@@ -279,8 +297,9 @@ return view.extend({
         }).catch(function() { /* Prompt dismissed */ });
     },
 
-    renderClientForm: function(container, sectionName, isAdd) {
+    renderClientForm: function(sectionName, isAdd) { // Removed container argument
         let m, s, o;
+        let formContainer = E('div'); // Create a new container for the form
 
         m = new form.Map('radius-mac',
             isAdd ? _('Add New RADIUS Client') : _('Edit RADIUS Client "%s"').format(sectionName),
@@ -465,14 +484,15 @@ return view.extend({
             this.renderBackButton()
         ]);
 
-        m.render().then(function(mapEl) {
-            container.innerHTML = '';
-            container.appendChild(mapEl);
-            container.appendChild(formActions);
+        return m.render().then(function(mapEl) {
+            formContainer.appendChild(mapEl);
+            formContainer.appendChild(formActions);
+            return formContainer; // Return the populated container
         }).catch(function(e) {
-            container.innerHTML = '';
             L.ui.error(_('Failed to render client form: %s').format(e.message));
-            container.appendChild(this.renderBackButton());
+            formContainer.appendChild(E('p', { 'class': 'cbi-error-message' }, _('Error rendering client form.')));
+            formContainer.appendChild(this.renderBackButton());
+            return formContainer;
         }.bind(this));
     }
 });
