@@ -16,172 +16,172 @@ msgstr ""
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:102
 msgid "-- Manual Entry / Do Not Populate --"
-msgstr ""
+msgstr "-- إدخال يدوي / عدم الملء --"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:60
 msgid "1-4094, or empty"
-msgstr ""
+msgstr "1-4094، أو فارغ"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:151
 msgid "1-4094, or empty for server default"
-msgstr ""
+msgstr "1-4094، أو فارغ للإعداد الافتراضي للخادم"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:35
 msgid "Address is required."
-msgstr ""
+msgstr "العنوان مطلوب."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:75
 msgid "Associated Server"
-msgstr ""
+msgstr "الخادم المرتبط"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:101
 msgid "Click to select a device..."
-msgstr ""
+msgstr "انقر لتحديد جهاز..."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:14
 msgid ""
 "Configure RADIUS MAC authentication servers and client devices. Changes take "
 "effect after the radius-mac service is enabled and (re)started."
-msgstr ""
+msgstr "تكوين خوادم مصادقة RADIUS MAC وأجهزة العملاء. تسري التغييرات بعد تمكين خدمة radius-mac و (إعادة) تشغيلها."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:56
 msgid "Default VLAN ID"
-msgstr ""
+msgstr "معرف VLAN الافتراضي"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:21
 msgid ""
 "Define RADIUS server instances. Each server listens for authentication "
 "requests."
-msgstr ""
+msgstr "تحديد مثيلات خادم RADIUS. يستمع كل خادم لطلبات المصادقة."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:69
 msgid ""
 "Define client devices by their MAC addresses and assign them to a server and "
 "optionally a VLAN."
-msgstr ""
+msgstr "تحديد أجهزة العملاء بواسطة عناوين MAC الخاصة بهم وتعيينها إلى خادم واختياريًا إلى VLAN."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:139
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:143
 msgid "Description must be between 1 and 256 characters."
-msgstr ""
+msgstr "يجب أن يكون الوصف بين 1 و 256 حرفًا."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:26
 msgid "Enabled"
-msgstr ""
+msgstr "ممكّن"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:31
 msgid ""
 "IP address the RADIUS server should listen on. Use 0.0.0.0 for all "
 "interfaces."
-msgstr ""
+msgstr "عنوان IP الذي يجب أن يستمع إليه خادم RADIUS. استخدم 0.0.0.0 لجميع الواجهات."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:30
 msgid "Listen Address"
-msgstr ""
+msgstr "عنوان الاستماع"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:130
 msgid "MAC Address"
-msgstr ""
+msgstr "عنوان MAC"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:133
 msgid "MAC address is required."
-msgstr ""
+msgstr "عنوان MAC مطلوب."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:140
 msgid "Optional: A descriptive name for this client device."
-msgstr ""
+msgstr "اختياري: اسم وصفي لجهاز العميل هذا."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:148
 msgid "Optional: Specific VLAN ID for this client. Overrides server default."
-msgstr ""
+msgstr "اختياري: معرف VLAN محدد لهذا العميل. يتجاوز الإعداد الافتراضي للخادم."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:57
 msgid ""
 "Optional: VLAN ID assigned to clients if no specific VLAN is configured for "
 "their MAC address."
-msgstr ""
+msgstr "اختياري: معرف VLAN المخصص للعملاء إذا لم يتم تكوين VLAN محدد لعنوان MAC الخاص بهم."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:98
 msgid "Populate from DHCP Static Lease"
-msgstr ""
+msgstr "الملء من تأجير DHCP ثابت"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:38
 msgid "Port"
-msgstr ""
+msgstr "المنفذ"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:43
 msgid "Port is required."
-msgstr ""
+msgstr "المنفذ مطلوب."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:13
 #: root/usr/share/luci/menu.d/luci-app-radius-mac.json:3
 msgid "RADIUS MAC Authentication"
-msgstr ""
+msgstr "مصادقة RADIUS MAC"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:68
 msgid "RADIUS Clients (Devices)"
-msgstr ""
+msgstr "عملاء RADIUS (الأجهزة)"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:20
 msgid "RADIUS Servers"
-msgstr ""
+msgstr "خوادم RADIUS"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:50
 msgid "Secret is required."
-msgstr ""
+msgstr "السر مطلوب."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:52
 msgid "Secret must be between 1 and 256 characters."
-msgstr ""
+msgstr "يجب أن يكون السر بين 1 و 256 حرفًا."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:99
 msgid ""
 "Select a device from DHCP static leases to auto-fill MAC address and "
 "description fields."
-msgstr ""
+msgstr "حدد جهازًا من تأجيرات DHCP الثابتة لملء حقول عنوان MAC والوصف تلقائيًا."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:76
 msgid ""
 "Select the RADIUS server instance this client device authenticates against."
-msgstr ""
+msgstr "حدد مثيل خادم RADIUS الذي يصادق عليه جهاز العميل هذا."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:79
 msgid "Server: %s"
-msgstr ""
+msgstr "الخادم: %s"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:82
 msgid "Server association is required."
-msgstr ""
+msgstr "ارتباط الخادم مطلوب."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:46
 msgid "Shared Secret"
-msgstr ""
+msgstr "السر المشترك"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:47
 msgid ""
 "Shared secret used to authenticate communication with the NAS (e.g., access "
 "point)."
-msgstr ""
+msgstr "السر المشترك المستخدم لمصادقة الاتصال مع NAS (مثل نقطة الوصول)."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:39
 msgid "UDP port the RADIUS server should listen on."
-msgstr ""
+msgstr "منفذ UDP الذي يجب أن يستمع إليه خادم RADIUS."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:91
 msgid "Unnamed Host"
-msgstr ""
+msgstr "مضيف غير مسمى"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 #: htdocs/luci-static/resources/view/radius-mac/config.js:63
 msgid "VLAN ID must be a number between 1 and 4094."
-msgstr ""
+msgstr "يجب أن يكون معرف VLAN رقمًا بين 1 و 4094."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 msgid "VLAN ID"
-msgstr ""
+msgstr "معرف VLAN"
 
 #~ msgid "No"
 #~ msgstr "لا"
