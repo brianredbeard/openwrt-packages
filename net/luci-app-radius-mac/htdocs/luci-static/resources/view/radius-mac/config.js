@@ -8,12 +8,14 @@ return view.extend({
     load: function() {
         return Promise.all([
             uci.load('radius-mac'),
-            uci.load('dhcp')
+            uci.load('dhcp'),
+            uci.load('network') // Load network configuration
         ]);
     },
 
     render: function(data) {
         let m, s, o;
+        // data[0] is radius-mac UCI, data[1] is dhcp UCI, data[2] is network UCI
 
         m = new form.Map('radius-mac',
             _('RADIUS MAC Authentication'),
@@ -97,6 +99,32 @@ return view.extend({
             if (!value) return _('Server association is required.');
             return true;
         };
+
+        // Collect existing VLAN IDs from network configuration
+        let existing_vlans = {};
+        uci.sections('network', 'device', function(device_section) {
+            if (device_section.type === '8021q' && device_section.vid) {
+                existing_vlans[device_section.vid] = device_section.vid;
+            } else if (device_section.vid) { // For other device types that might have a VID
+                 existing_vlans[device_section.vid] = device_section.vid;
+            }
+            // Also consider names like eth0.10, br-lan.10
+            if (device_section['.name']) {
+                const match = device_section['.name'].match(/\.(\d+)$/);
+                if (match && match[1]) {
+                     let vid = parseInt(match[1], 10);
+                     if (vid >= 1 && vid <= 4094) {
+                        existing_vlans[vid] = vid;
+                     }
+                }
+            }
+        });
+         uci.sections('network', 'interface', function(iface_section) {
+            if (iface_section.vlan) { // some setups might define vlan on interface
+                existing_vlans[iface_section.vlan] = iface_section.vlan;
+            }
+        });
+
 
         // DHCP Host Selector (helper, not directly saved)
         let dhcp_static_hosts = [];
@@ -183,13 +211,21 @@ return view.extend({
             return true;
         };
 
-        o = s.option(form.Value, 'vlan', _('VLAN ID'),
+        o = s.option(form.DynamicList, 'vlan', _('VLAN ID'),
             _('Optional: Specific VLAN ID for this client. Overrides server default.'));
-        o.datatype = 'uinteger';
         o.optional = true;
+        o.datatype = 'uinteger'; // For custom input validation
         o.placeholder = _('1-4094, or empty for server default');
+
+        // Populate with discovered VLANs
+        let sorted_vlan_ids = Object.keys(existing_vlans).map(Number).sort((a, b) => a - b);
+        sorted_vlan_ids.forEach(function(vid) {
+            o.value(String(vid), String(vid));
+        });
+        // DynamicList inherently allows custom values if not in the list.
+
         o.validate = function(section_id, value) {
-            if (value === "" || value == null) return true;
+            if (value === "" || value == null) return true; // Empty is allowed
             let num = parseInt(value, 10);
             if (isNaN(num) || num < 1 || num > 4094) {
                 return _('VLAN ID must be a number between 1 and 4094.');
