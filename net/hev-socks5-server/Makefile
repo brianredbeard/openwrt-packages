@@ -17,6 +17,14 @@ PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
+define Build/Prepare
+	$(call Build/Prepare/Default)
+	# Correct the example path for auth.txt in the default main.yml
+	if [ -f "$(PKG_BUILD_DIR)/conf/main.yml" ]; then \
+		sed -i 's|#  file: conf/auth.txt|#  file: /etc/hev-socks5-server/auth.txt|g' $(PKG_BUILD_DIR)/conf/main.yml; \
+	fi
+endef
+
 define Package/hev-socks5-server
   SECTION:=net
   CATEGORY:=Network
@@ -26,7 +34,8 @@ endef
 
 define Package/hev-socks5-server/conffiles
 /etc/config/hev-socks5-server
-/etc/hev-socks5-server/
+/etc/hev-socks5-server/main.yml
+/etc/hev-socks5-server/auth.txt
 endef
 
 define Package/hev-socks5-server/install
