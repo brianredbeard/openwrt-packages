@@ -2,6 +2,7 @@
 'require uci';
 'require form';
 'require view';
+'require ui'; // Add ui module for ui.createHandlerFn
 // 'require network'; // Not strictly needed if relying on datatypes
 
 return view.extend({
