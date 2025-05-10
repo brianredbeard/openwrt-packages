@@ -7,7 +7,6 @@ USE_PROCD=1
 
 PROG=/usr/bin/radius-mac
 CONFIG_BASE_DIR="/etc" # Directory for generated .ini files
-UCI_CONFIG_NAME="radius-mac"
 
 # Helper to determine the path for the generated .ini file
 # $1: section_name (from UCI, e.g., 'default', 'guest_server')
@@ -199,10 +198,10 @@ start_one_instance() {
 }
 
 start_service() {
-    config_load "$UCI_CONFIG_NAME"
+    config_load radius-mac
     config_foreach start_one_instance radius-mac-server
 }
 
 service_triggers() {
-    procd_add_reload_trigger "$UCI_CONFIG_NAME"
+    procd_add_reload_trigger radius-mac
 }

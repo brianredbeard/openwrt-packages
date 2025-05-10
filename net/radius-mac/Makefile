@@ -8,6 +8,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/carlanton/radius-mac.git
 PKG_SOURCE_VERSION:=release-0.1
+PKG_MIRROR_HASH:=
 
 PKG_MAINTAINER:=Brian 'redbeard' Harrington <redbeard@dead-city.org>
 PKG_LICENSE:=MIT
@@ -47,9 +48,6 @@ define Package/radius-mac/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/radius-mac.init $(1)/etc/init.d/radius-mac
-
-	$(INSTALL_DIR) $(1)/lib/upgrade/keep.d
-	$(INSTALL_DATA) ./files/radius-mac.upgrade $(1)/lib/upgrade/keep.d/radius-mac
 endef
 
 $(eval $(call BuildPackage,radius-mac))
