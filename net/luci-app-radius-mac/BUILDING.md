@@ -30,7 +30,7 @@ If you're doing a whole new application, instead of editing this one, you can us
 * Change the Target system to match your test environment (x86 for QEMU for instance)
 * Select the LuCI option
 * Select the Applications option
-* Navigate the list to find `luci-app-example`
+* Navigate the list to find `luci-app-radius-mac`
 * Press `m` to make the selection be `<M>` - modular build
 * Choose Exit all the way back out, and save the configuration
 
@@ -46,7 +46,7 @@ Though the command says "install", nothing is actually installed outside of the 
 
 This will trigger the build of all the dependencies, such as **ubus**, **libjson-c**, **rpcd** etcetera.
 
-* Run `make package/luci-app-example/compile`
+* Run `make package/luci-app-radius-mac/compile`
 
 The IPK file will be produced in `bin/packages/<architecture>/luci/`. This file can be copied to your test environment (QEMU, real hardware etcetera), and installed with `opkg`.
 
