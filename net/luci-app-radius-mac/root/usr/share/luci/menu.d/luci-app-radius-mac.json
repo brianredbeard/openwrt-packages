@@ -1,6 +1,6 @@
 {
   "admin/services/radius-mac": {
-    "title": "RADIUS MAC Auth",
+    "title": "RADIUS MAC Authentication",
     "order": 70,
     "action": {
       "type": "view",

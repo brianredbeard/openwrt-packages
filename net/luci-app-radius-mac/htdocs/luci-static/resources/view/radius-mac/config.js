@@ -18,7 +18,7 @@ return view.extend({
         m = new form.Map('radius-mac',
             _('RADIUS MAC Authentication'),
             _('Configure RADIUS MAC authentication servers and client devices. ' +
-              'Ensure the radius-mac service is enabled and started for changes to take effect.'));
+              'Changes take effect after the radius-mac service is enabled and (re)started.'));
 
         this.map = m; // Make map instance available for widget interaction
 
@@ -113,7 +113,7 @@ return view.extend({
         if (dhcp_static_hosts.length > 0) {
             o = s.option(form.ListValue, '_dhcp_host_select',
                 _('Populate from DHCP Static Lease'),
-                _('Select a device from DHCP static leases to auto-fill MAC and Description.'));
+                _('Select a device from DHCP static leases to auto-fill MAC address and description fields.'));
             o.optional = true;
             o.placeholder = _('Click to select a device...');
             o.value('', _('-- Manual Entry / Do Not Populate --')); // Default empty value
