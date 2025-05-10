@@ -101,13 +101,28 @@ return view.extend({
         // DHCP Host Selector (helper, not directly saved)
         let dhcp_static_hosts = [];
         uci.sections('dhcp', 'host', function(host_section) {
-            if (host_section.mac && host_section.mac.toLowerCase() !== 'ff:ff:ff:ff:ff:ff' && host_section.mac !== '00:00:00:00:00:00') {
-                dhcp_static_hosts.push({
-                    mac: host_section.mac.toLowerCase(),
-                    name: host_section.name || '',
-                    display: `${host_section.name || _('Unnamed Host')} (${host_section.mac.toLowerCase()})`
-                });
+            // Ensure host_section.mac is an array of strings to iterate over
+            let macs_to_process = [];
+            if (host_section.mac) {
+                if (Array.isArray(host_section.mac)) {
+                    macs_to_process = host_section.mac;
+                } else if (typeof host_section.mac === 'string') {
+                    macs_to_process = [host_section.mac];
+                }
             }
+
+            macs_to_process.forEach(function(mac_addr) {
+                if (typeof mac_addr === 'string') { // Ensure it's a string before processing
+                    let lower_mac = mac_addr.toLowerCase();
+                    if (lower_mac !== 'ff:ff:ff:ff:ff:ff' && lower_mac !== '00:00:00:00:00:00') {
+                        dhcp_static_hosts.push({
+                            mac: lower_mac,
+                            name: host_section.name || '', // Hostname applies to all MACs in this section
+                            display: `${host_section.name || _('Unnamed Host')} (${lower_mac})`
+                        });
+                    }
+                }
+            });
         });
 
         if (dhcp_static_hosts.length > 0) {
