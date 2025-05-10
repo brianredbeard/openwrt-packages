@@ -1,19 +1,3 @@
-# See /LICENSE for more information.
-# This is free software, licensed under the GNU General Public License v2.
-
-include $(TOPDIR)/rules.mk
-
-LUCI_TITLE:=LuCI example app for js based luci
-LUCI_DEPENDS:=+luci-base
-LUCI_PKGARCH:=all
-
-PKG_LICENSE:=GPL-2.0
-PKG_MAINTAINER:=Andreas Brau <ab@andi95.de>, \
-	Duncan Hill <github.com@cricalix.net>
-
-include ../../luci.mk
-
-# call BuildPackage - OpenWrt buildroot signature
 # Makefile for luci-app-radius-mac
 # Copyright (C) 2025 Your Name <your.email@example.com>
 # This is free software, licensed under the Apache-2.0 License.
