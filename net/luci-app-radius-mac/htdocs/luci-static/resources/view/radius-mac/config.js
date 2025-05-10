@@ -14,250 +14,173 @@ return view.extend({
     },
 
     render: function(data) {
-        let m, s, o;
         // data[0] is radius-mac UCI, data[1] is dhcp UCI, data[2] is network UCI
+        // We use uci.sections() to iterate, which uses the loaded data implicitly.
 
-        m = new form.Map('radius-mac',
-            _('RADIUS MAC Authentication'),
-            _('Configure RADIUS MAC authentication servers and client devices. ' +
-              'Changes take effect after the radius-mac service is enabled and (re)started.'));
+        let container = E('div', {}, [
+            E('h2', {}, _('RADIUS MAC Authentication')),
+            E('p', {}, _('Configure RADIUS MAC authentication servers and client devices. ' +
+                         'Changes take effect after the radius-mac service is enabled and (re)started.'))
+        ]);
 
-        this.map = m; // Make map instance available for widget interaction
+        // --- RADIUS Servers Table ---
+        container.appendChild(E('h3', {}, _('RADIUS Servers')));
+        
+        let addServerButton = E('button', {
+            'class': 'cbi-button cbi-button-add',
+            'click': ui.createHandlerFn(this, function() {
+                // Placeholder for Add Server functionality
+                // This would typically involve uci.add('radius-mac', 'radius-mac-server')
+                // and then navigating to an edit view for the new (named or anonymous) section.
+                console.log('Add Server clicked');
+                alert(_('Add Server functionality not yet implemented.'));
+            })
+        }, _('Add Server'));
+        container.appendChild(addServerButton);
 
-        // --- Server Section ---
-        s = m.section(form.TypedSection, 'radius-mac-server',
-            _('RADIUS Servers'),
-            _('Define RADIUS server instances. Each server listens for authentication requests.'));
-        s.addremove = true;
-        s.anonymous = false;
-        s.sortable = true;
-        s.extedit = false; // No separate edit page for simple sections
+        let serversTable = E('table', { 'class': 'table cbi-section-table' }, [
+            E('tr', { 'class': 'tr table-titles' }, [
+                E('th', { 'class': 'th' }, _('Name')),
+                E('th', { 'class': 'th' }, _('Enabled')),
+                E('th', { 'class': 'th' }, _('Listen Address')),
+                E('th', { 'class': 'th' }, _('Port')),
+                E('th', { 'class': 'th' }, _('Default VLAN ID')),
+                E('th', { 'class': 'th' }, _('Actions'))
+            ])
+        ]);
 
-        o = s.option(form.Flag, 'enable', _('Enabled')); // Changed 'enabled' to 'enable'
-        o.default = o.disabled; // '0'
-        o.rmempty = false;
-
-        o = s.option(form.Value, 'address', _('Listen Address'),
-            _('IP address the RADIUS server should listen on. Use 0.0.0.0 for all interfaces.'));
-        o.datatype = 'ipaddr';
-        o.placeholder = '0.0.0.0';
-        o.validate = function(section_id, value) {
-            if (!value) return _('Address is required.');
-            return true;
-        };
-
-        o = s.option(form.Value, 'port', _('Port'),
-            _('UDP port the RADIUS server should listen on.'));
-        o.datatype = 'port';
-        o.placeholder = '1812';
-        o.validate = function(section_id, value) {
-            if (!value) return _('Port is required.');
-            return true;
-        };
-
-        o = s.option(form.Value, 'secret', _('Shared Secret'),
-            _('Shared secret used to authenticate communication with the NAS (e.g., access point).'));
-        o.password = true;
-        o.validate = function(section_id, value) {
-            if (!value) return _('Secret is required.');
-            if (value.length < 1 || value.length > 256) {
-                return _('Secret must be between 1 and 256 characters.');
-            }
-            return true;
-        };
-
-        o = s.option(form.Value, 'default_vlan', _('Default VLAN ID'),
-            _('Optional: VLAN ID assigned to clients if no specific VLAN is configured for their MAC address.'));
-        o.datatype = 'uinteger';
-        o.optional = true;
-        o.placeholder = _('1-4094, or empty');
-        o.validate = function(section_id, value) {
-            if (value === "" || value == null) return true;
-            let num = parseInt(value, 10);
-            if (isNaN(num) || num < 1 || num > 4094) {
-                return _('VLAN ID must be a number between 1 and 4094.');
-            }
-            return true;
-        };
-
-        // --- Client Section ---
-        s = m.section(form.TypedSection, 'radius-mac-client',
-            _('RADIUS Clients (Devices)'),
-            _('Define client devices by their MAC addresses and assign them to a server and optionally a VLAN.'));
-        s.addremove = true;
-        s.anonymous = false;
-        s.sortable = true;
-        s.extedit = false;
-
-        o = s.option(form.ListValue, 'server', _('Associated Server'),
-            _('Select the RADIUS server instance this client device authenticates against.'));
-        uci.sections('radius-mac', 'radius-mac-server', function(server_section) {
-            let name = server_section['.name'];
-            o.value(name, _('Server: %s').format(name));
+        uci.sections('radius-mac', 'radius-mac-server', function(section) {
+            serversTable.appendChild(E('tr', { 'class': 'tr cbi-rowstyle-1' }, [ // Alternating styles can be added
+                E('td', { 'class': 'td' }, section['.name']),
+                E('td', { 'class': 'td' }, (section.enable === '1' ? _('Yes') : _('No'))),
+                E('td', { 'class': 'td' }, section.address || '-'),
+                E('td', { 'class': 'td' }, section.port || '-'),
+                E('td', { 'class': 'td' }, section.default_vlan || '-'),
+                E('td', { 'class': 'td' }, [
+                    E('button', {
+                        'class': 'cbi-button cbi-button-edit',
+                        'click': ui.createHandlerFn(this, function() {
+                            // Placeholder for Edit Server functionality
+                            // This would navigate to a form view for this specific section.
+                            console.log('Edit Server clicked for: ' + section['.name']);
+                            alert(_('Edit Server functionality for "%s" not yet implemented.').format(section['.name']));
+                        })
+                    }, _('Edit')),
+                    ' ', // Spacer
+                    E('button', {
+                        'class': 'cbi-button cbi-button-remove',
+                        'click': ui.createHandlerFn(this, function() {
+                            // Placeholder for Delete Server functionality
+                            // This would involve uci.remove('radius-mac', section['.name']) and a view refresh.
+                            console.log('Delete Server clicked for: ' + section['.name']);
+                             if (confirm(_('Are you sure you want to delete server "%s"?').format(section['.name']))) {
+                                uci.remove('radius-mac', section['.name']);
+                                uci.save().then(() => uci.apply()).then(() => view.reset()); // Save, apply, and refresh view
+                            }
+                        })
+                    }, _('Delete'))
+                ])
+            ]));
         });
-        o.validate = function(section_id, value) {
-            if (!value) return _('Server association is required.');
-            return true;
-        };
-
-        // Collect existing VLAN IDs
-        let existing_vlans_set = new Set();
-
-        // From network device configurations
-        uci.sections('network', 'device', function(s) {
-            // Devices of type 802.1q explicitly define a VLAN ID
-            if (s.type === '8021q' && s.vid) {
-                let vid = parseInt(s.vid, 10);
-                if (!isNaN(vid) && vid >= 1 && vid <= 4094) {
-                    existing_vlans_set.add(vid);
-                }
-            }
-            // Device names following common VLAN sub-interface naming (e.g., eth0.10, br-lan.20)
-            if (s['.name'] && typeof s['.name'] === 'string') {
-                const match = s['.name'].match(/\.(\d+)$/);
-                if (match && match[1]) {
-                    let vid = parseInt(match[1], 10);
-                    if (!isNaN(vid) && vid >= 1 && vid <= 4094) {
-                        existing_vlans_set.add(vid);
-                    }
-                }
-            }
-        });
-
-        // From existing radius-mac server default_vlan configurations
-        uci.sections('radius-mac', 'radius-mac-server', function(s) {
-            if (s.default_vlan) {
-                let vid = parseInt(s.default_vlan, 10);
-                if (!isNaN(vid) && vid >= 1 && vid <= 4094) {
-                    existing_vlans_set.add(vid);
-                }
-            }
-        });
-
-        // From existing radius-mac client vlan configurations
-        uci.sections('radius-mac', 'radius-mac-client', function(s) {
-            if (s.vlan) {
-                let vid = parseInt(s.vlan, 10);
-                if (!isNaN(vid) && vid >= 1 && vid <= 4094) {
-                    existing_vlans_set.add(vid);
-                }
-            }
-        });
-
-        // DHCP Host Selector (helper, not directly saved)
-        let dhcp_static_hosts = [];
-        uci.sections('dhcp', 'host', function(host_section) {
-            // Ensure host_section.mac is an array of strings to iterate over
-            let macs_to_process = [];
-            if (host_section.mac) {
-                if (Array.isArray(host_section.mac)) {
-                    macs_to_process = host_section.mac;
-                } else if (typeof host_section.mac === 'string') {
-                    macs_to_process = [host_section.mac];
-                }
-            }
-
-            macs_to_process.forEach(function(mac_addr) {
-                if (typeof mac_addr === 'string') { // Ensure it's a string before processing
-                    let lower_mac = mac_addr.toLowerCase();
-                    if (lower_mac !== 'ff:ff:ff:ff:ff:ff' && lower_mac !== '00:00:00:00:00:00') {
-                        dhcp_static_hosts.push({
-                            mac: lower_mac,
-                            name: host_section.name || '', // Hostname applies to all MACs in this section
-                            display: `${host_section.name || _('Unnamed Host')} (${lower_mac})`
-                        });
-                    }
-                }
-            });
-        });
-
-        if (dhcp_static_hosts.length > 0) {
-            o = s.option(form.ListValue, '_dhcp_host_select',
-                _('Populate from DHCP Static Lease'),
-                _('Select a device from DHCP static leases to auto-fill MAC address and description fields.'));
-            o.optional = true;
-            o.placeholder = _('Click to select a device...');
-            o.value('', _('-- Manual Entry / Do Not Populate --')); // Default empty value
-            dhcp_static_hosts.sort((a,b) => a.display.localeCompare(b.display)).forEach(function(host) {
-                o.value(host.mac, host.display); // Value is the MAC
-            });
-
-            o.onchange = function(ev, section_id, selected_mac) {
-                if (!selected_mac) { // If "-- Manual Entry --" or empty is selected
-                    this.map.sectionWidgets[section_id].optionWidgets._dhcp_host_select.setValue(''); // Ensure it's reset if re-selected
-                    return;
-                }
-
-                let host_info = dhcp_static_hosts.find(h => h.mac === selected_mac);
-                if (!host_info) return;
-
-                let client_section_instance = this.map.sectionWidgets[section_id];
-
-                // Update MAC field
-                let mac_widget = client_section_instance.optionWidgets.mac;
-                if (mac_widget) {
-                    mac_widget.setValue(host_info.mac);
-                }
-
-                // Update description field
-                let desc_widget = client_section_instance.optionWidgets.description;
-                if (desc_widget && host_info.name) {
-                    desc_widget.setValue(host_info.name);
-                } else if (desc_widget) {
-                    // If host_info.name is empty, you might want to clear the description
-                    // desc_widget.setValue(''); // Uncomment if clearing is desired
-                }
-                // Note: Do not reset this.setValue('') here.
-                // The dropdown should retain the selected DHCP lease.
-                // The user can explicitly select "-- Manual Entry / Do Not Populate --"
-                // if they wish to clear the selection or enter data manually.
-            };
+        container.appendChild(serversTable);
+        if (uci.sections('radius-mac', 'radius-mac-server').length === 0) {
+            container.appendChild(E('p', {}, _('There are no RADIUS servers configured yet.')));
         }
 
-        o = s.option(form.Value, 'mac', _('MAC Address'));
-        o.datatype = 'macaddr';
-        o.validate = function(section_id, value) {
-            if (!value) return _('MAC address is required.');
-            // Basic MAC format check is handled by 'macaddr' datatype
-            // Additional normalization (e.g. tolower) is good practice if backend expects it,
-            // but UCI usually handles values as-is. The init script normalizes.
-            return true;
-        };
 
-        o = s.option(form.Value, 'description', _('Description'),
-            _('Optional: A descriptive name for this client device.'));
-        o.optional = true;
-        o.validate = function(section_id, value) {
-            if (value && (value.length < 1 || value.length > 256)) {
-                return _('Description must be between 1 and 256 characters.');
-            }
-            return true;
-        };
+        // --- RADIUS Clients Table ---
+        container.appendChild(E('h3', {}, _('RADIUS Clients (Devices)')));
 
-        o = s.option(form.DynamicList, 'vlan', _('VLAN ID'),
-            _('Optional: Specific VLAN ID for this client. Overrides server default.'));
-        o.optional = true;
-        o.datatype = 'uinteger'; // For custom input validation
-        o.placeholder = _('1-4094, or empty for server default'); // This placeholder is for the input field when "custom" is chosen
+        let addClientButton = E('button', {
+            'class': 'cbi-button cbi-button-add',
+            'click': ui.createHandlerFn(this, function() {
+                // Placeholder for Add Client functionality
+                console.log('Add Client clicked');
+                alert(_('Add Client functionality not yet implemented.'));
+            })
+        }, _('Add Client'));
+        container.appendChild(addClientButton);
 
-        // Populate with discovered VLANs
-        let sorted_vlan_ids = Array.from(existing_vlans_set).sort((a, b) => a - b);
+        let clientsTable = E('table', { 'class': 'table cbi-section-table' }, [
+            E('tr', { 'class': 'tr table-titles' }, [
+                E('th', { 'class': 'th' }, _('Name')), // Section name
+                E('th', { 'class': 'th' }, _('MAC Address')),
+                E('th', { 'class': 'th' }, _('Description')),
+                E('th', { 'class': 'th' }, _('Associated Server')),
+                E('th', { 'class': 'th' }, _('VLAN ID')),
+                E('th', { 'class': 'th' }, _('Actions'))
+            ])
+        ]);
 
-        sorted_vlan_ids.forEach(function(vid) {
-            o.value(String(vid), String(vid)); // Add each valid, unique VLAN ID
+        uci.sections('radius-mac', 'radius-mac-client', function(section) {
+            clientsTable.appendChild(E('tr', { 'class': 'tr cbi-rowstyle-1' }, [
+                E('td', { 'class': 'td' }, section['.name']),
+                E('td', { 'class': 'td' }, section.mac || '-'),
+                E('td', { 'class': 'td' }, section.description || '-'),
+                E('td', { 'class': 'td' }, section.server || '-'),
+                E('td', { 'class': 'td' }, section.vlan || '-'),
+                E('td', { 'class': 'td' }, [
+                    E('button', {
+                        'class': 'cbi-button cbi-button-edit',
+                        'click': ui.createHandlerFn(this, function() {
+                            // Placeholder for Edit Client functionality
+                            console.log('Edit Client clicked for: ' + section['.name']);
+                            alert(_('Edit Client functionality for "%s" not yet implemented.').format(section['.name']));
+                        })
+                    }, _('Edit')),
+                    ' ', // Spacer
+                    E('button', {
+                        'class': 'cbi-button cbi-button-remove',
+                        'click': ui.createHandlerFn(this, function() {
+                            // Placeholder for Delete Client functionality
+                            console.log('Delete Client clicked for: ' + section['.name']);
+                            if (confirm(_('Are you sure you want to delete client "%s"?').format(section['.name']))) {
+                                uci.remove('radius-mac', section['.name']);
+                                uci.save().then(() => uci.apply()).then(() => view.reset()); // Save, apply, and refresh view
+                            }
+                        })
+                    }, _('Delete'))
+                ])
+            ]));
         });
-        // DynamicList inherently allows custom values if not in the list, which are then validated.
+        container.appendChild(clientsTable);
+        if (uci.sections('radius-mac', 'radius-mac-client').length === 0) {
+            container.appendChild(E('p', {}, _('There are no RADIUS clients configured yet.')));
+        }
 
-        o.validate = function(section_id, value) {
-            if (value === "" || value == null) return true; // Empty is allowed
-            let num = parseInt(value, 10);
-            if (isNaN(num) || num < 1 || num > 4094) {
-                return _('VLAN ID must be a number between 1 and 4094.');
-            }
-            return true;
-        };
+        // Standard Save & Apply buttons
+        let saveApplyBtn = E('div', { 'class': 'cbi-page-actions' }, [
+            E('button', {
+                'class': 'cbi-button cbi-button-save',
+                'click': ui.createHandlerFn(this, function() {
+                    // For a list view, direct save/apply might not be needed if edits are per-item.
+                    // However, if reordering or other list-wide changes were possible, it would be.
+                    // For now, this can be a general "apply changes" if any were made via modals/sub-views.
+                    // Or, it can be removed if all saves are handled within item-specific edit forms.
+                    // Since we added delete functionality that calls uci.save().then(uci.apply),
+                    // this button might be redundant or for other potential changes.
+                    // For now, let's make it a generic "Refresh" or keep it as a placeholder.
+                    // view.reset() will re-run load and render.
+                    uci.save().then(() => uci.apply()).then(() => {
+                        // Optionally, provide feedback that settings were saved/applied.
+                        // For now, just refresh.
+                        view.reset();
+                    }).catch(e => {
+                        console.error('Save/Apply failed', e);
+                        // Add user feedback for failure
+                    });
+                })
+            }, _('Save & Apply')),
+            E('button', {
+                'class': 'cbi-button cbi-button-reset',
+                'click': ui.createHandlerFn(this, function() {
+                    view.reset(); // Reloads data and re-renders the view
+                })
+            }, _('Reset'))
+        ]);
+        // container.appendChild(saveApplyBtn); // Decided to remove global Save & Apply for now as edits are per item.
 
-        return m.render();
+        return container;
     }
-    // No handleSave, handleSaveApply, handleReset needed; defaults will be used.
+    // No handleSave, handleSaveApply, handleReset needed for the main list view itself if edits are handled elsewhere.
 });
