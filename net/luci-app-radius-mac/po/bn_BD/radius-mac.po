@@ -1,179 +1,181 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: luci-app-radius-mac\n"
 "POT-Creation-Date: 2025-05-10 10:00+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-05-10 10:00+0000\n"
+"Last-Translator: Your Name <your.email@example.com>\n"
+"Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/openwrt/luci-app-radius-mac/bn_BD/>\n"
 "Language: bn_BD\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:102
 msgid "-- Manual Entry / Do Not Populate --"
-msgstr ""
+msgstr "-- ম্যানুয়াল এন্ট্রি / পূরণ করবেন না --"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:60
 msgid "1-4094, or empty"
-msgstr ""
+msgstr "১-৪০৯৪, অথবা খালি"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:151
 msgid "1-4094, or empty for server default"
-msgstr ""
+msgstr "১-৪০৯৪, অথবা সার্ভার ডিফল্টের জন্য খালি"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:35
 msgid "Address is required."
-msgstr ""
+msgstr "ঠিকানা আবশ্যক।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:75
 msgid "Associated Server"
-msgstr ""
+msgstr "সংশ্লিষ্ট সার্ভার"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:101
 msgid "Click to select a device..."
-msgstr ""
+msgstr "একটি ডিভাইস নির্বাচন করতে ক্লিক করুন..."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:14
 msgid ""
 "Configure RADIUS MAC authentication servers and client devices. Changes take "
 "effect after the radius-mac service is enabled and (re)started."
-msgstr ""
+msgstr "RADIUS MAC প্রমাণীকরণ সার্ভার এবং ক্লায়েন্ট ডিভাইস কনফিগার করুন। radius-mac পরিষেবা সক্রিয় এবং (পুনরায়) শুরু করার পরে পরিবর্তনগুলি কার্যকর হবে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:56
 msgid "Default VLAN ID"
-msgstr ""
+msgstr "ডিফল্ট VLAN আইডি"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:21
 msgid ""
 "Define RADIUS server instances. Each server listens for authentication "
 "requests."
-msgstr ""
+msgstr "RADIUS সার্ভার ইনস্ট্যান্স সংজ্ঞায়িত করুন। প্রতিটি সার্ভার প্রমাণীকরণ অনুরোধ শোনে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:69
 msgid ""
 "Define client devices by their MAC addresses and assign them to a server and "
 "optionally a VLAN."
-msgstr ""
+msgstr "তাদের MAC ঠিকানা দ্বারা ক্লায়েন্ট ডিভাইস সংজ্ঞায়িত করুন এবং তাদের একটি সার্ভার এবং ঐচ্ছিকভাবে একটি VLAN-এ বরাদ্দ করুন।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:139
 msgid "Description"
-msgstr ""
+msgstr "বর্ণনা"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:143
 msgid "Description must be between 1 and 256 characters."
-msgstr ""
+msgstr "বর্ণনা ১ থেকে ২৫৬ অক্ষরের মধ্যে হতে হবে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:26
 msgid "Enabled"
-msgstr ""
+msgstr "সক্রিয়"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:31
 msgid ""
 "IP address the RADIUS server should listen on. Use 0.0.0.0 for all "
 "interfaces."
-msgstr ""
+msgstr "RADIUS সার্ভার যে আইপি ঠিকানায় শুনবে। সমস্ত ইন্টারফেসের জন্য 0.0.0.0 ব্যবহার করুন।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:30
 msgid "Listen Address"
-msgstr ""
+msgstr "শোনার ঠিকানা"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:130
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC ঠিকানা"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:133
 msgid "MAC address is required."
-msgstr ""
+msgstr "MAC ঠিকানা আবশ্যক।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:140
 msgid "Optional: A descriptive name for this client device."
-msgstr ""
+msgstr "ঐচ্ছিক: এই ক্লায়েন্ট ডিভাইসের জন্য একটি বর্ণনামূলক নাম।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:148
 msgid "Optional: Specific VLAN ID for this client. Overrides server default."
-msgstr ""
+msgstr "ঐচ্ছিক: এই ক্লায়েন্টের জন্য নির্দিষ্ট VLAN আইডি। সার্ভার ডিফল্ট ওভাররাইড করে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:57
 msgid ""
 "Optional: VLAN ID assigned to clients if no specific VLAN is configured for "
 "their MAC address."
-msgstr ""
+msgstr "ঐচ্ছিক: ক্লায়েন্টদের জন্য নির্ধারিত VLAN আইডি যদি তাদের MAC ঠিকানার জন্য কোনও নির্দিষ্ট VLAN কনফিগার করা না থাকে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:98
 msgid "Populate from DHCP Static Lease"
-msgstr ""
+msgstr "DHCP স্ট্যাটিক লিজ থেকে পূরণ করুন"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:38
 msgid "Port"
-msgstr ""
+msgstr "পোর্ট"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:43
 msgid "Port is required."
-msgstr ""
+msgstr "পোর্ট আবশ্যক।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:13
 #: root/usr/share/luci/menu.d/luci-app-radius-mac.json:3
 msgid "RADIUS MAC Authentication"
-msgstr ""
+msgstr "RADIUS MAC প্রমাণীকরণ"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:68
 msgid "RADIUS Clients (Devices)"
-msgstr ""
+msgstr "RADIUS ক্লায়েন্ট (ডিভাইস)"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:20
 msgid "RADIUS Servers"
-msgstr ""
+msgstr "RADIUS সার্ভার"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:50
 msgid "Secret is required."
-msgstr ""
+msgstr "গোপনীয় কোড আবশ্যক।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:52
 msgid "Secret must be between 1 and 256 characters."
-msgstr ""
+msgstr "গোপনীয় কোড ১ থেকে ২৫৬ অক্ষরের মধ্যে হতে হবে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:99
 msgid ""
 "Select a device from DHCP static leases to auto-fill MAC address and "
 "description fields."
-msgstr ""
+msgstr "MAC ঠিকানা এবং বিবরণ ক্ষেত্রগুলি স্বয়ংক্রিয়ভাবে পূরণ করতে DHCP স্ট্যাটিক লিজ থেকে একটি ডিভাইস নির্বাচন করুন।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:76
 msgid ""
 "Select the RADIUS server instance this client device authenticates against."
-msgstr ""
+msgstr "এই ক্লায়েন্ট ডিভাইসটি যে RADIUS সার্ভার ইনস্ট্যান্সের বিরুদ্ধে প্রমাণীকরণ করবে তা নির্বাচন করুন।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:79
 msgid "Server: %s"
-msgstr ""
+msgstr "সার্ভার: %s"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:82
 msgid "Server association is required."
-msgstr ""
+msgstr "সার্ভার অ্যাসোসিয়েশন আবশ্যক।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:46
 msgid "Shared Secret"
-msgstr ""
+msgstr "ভাগ করা গোপনীয় কোড"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:47
 msgid ""
 "Shared secret used to authenticate communication with the NAS (e.g., access "
 "point)."
-msgstr ""
+msgstr "NAS (যেমন, অ্যাক্সেস পয়েন্ট) এর সাথে যোগাযোগ প্রমাণীকরণের জন্য ব্যবহৃত ভাগ করা গোপনীয় কোড।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:39
 msgid "UDP port the RADIUS server should listen on."
-msgstr ""
+msgstr "RADIUS সার্ভার যে UDP পোর্টে শুনবে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:91
 msgid "Unnamed Host"
-msgstr ""
+msgstr "নামহীন হোস্ট"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 #: htdocs/luci-static/resources/view/radius-mac/config.js:63
 msgid "VLAN ID must be a number between 1 and 4094."
-msgstr ""
+msgstr "VLAN আইডি ১ থেকে ৪০৯৪ এর মধ্যে একটি সংখ্যা হতে হবে।"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 msgid "VLAN ID"
-msgstr ""
+msgstr "VLAN আইডি"
