@@ -1,0 +1,14 @@
+{
+  "admin/services/radius-mac": {
+    "title": "RADIUS MAC Auth",
+    "order": 70,
+    "action": {
+      "type": "view",
+      "path": "radius-mac/config"
+    },
+    "depends": {
+      "acl": [ "luci-app-radius-mac" ],
+      "uci": { "radius-mac": true }
+    }
+  }
+}

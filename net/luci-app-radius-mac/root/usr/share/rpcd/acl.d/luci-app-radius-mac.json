@@ -1,0 +1,16 @@
+{
+  "luci-app-radius-mac": {
+    "description": "Grant UCI access for RADIUS MAC Authentication configuration",
+    "read": {
+      "uci": [
+        "radius-mac",
+        "dhcp"
+      ]
+    },
+    "write": {
+      "uci": [
+        "radius-mac"
+      ]
+    }
+  }
+}
