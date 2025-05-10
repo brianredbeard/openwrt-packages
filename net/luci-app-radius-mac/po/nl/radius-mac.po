@@ -1,6 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2025-05-10 10:00+0000\n"
 "PO-Revision-Date: 2024-12-21 22:48+0000\n"
 "Last-Translator: Sander Schutten <schutten@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/openwrt/"
@@ -12,168 +13,291 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.10-dev\n"
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:38
-msgid "A boolean option"
-msgstr "Een booleaanse optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:102
+msgid "-- Manual Entry / Do Not Populate --"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:43
-msgid "A select option"
-msgstr "Een select optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:60
+msgid "1-4094, or empty"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:55
-msgid "Cats"
-msgstr "Katten"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:151
+msgid "1-4094, or empty for server default"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-tablesection.js:72
-msgid "Description for this table section"
-msgstr "Beschrijving voor deze tabel sectie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:35
+msgid "Address is required."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-typedsection.js:72
-msgid "Description for this typed section"
-msgstr "Beschrijving voor deze typed sectie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:75
+msgid "Associated Server"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:56
-msgid "Dogs"
-msgstr "Honden"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:101
+msgid "Click to select a device..."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:55
-msgid "Dynamic list option"
-msgstr "Dynamische lijst optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:14
+msgid ""
+"Configure RADIUS MAC authentication servers and client devices. Changes take "
+"effect after the radius-mac service is enabled and (re)started."
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/luci/menu.d/luci-app-example.json:3
-msgid "Example"
-msgstr "Voorbeeld"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:56
+msgid "Default VLAN ID"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:25
-msgid "Example Form"
-msgstr "Voorbeeld formulier"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:21
+msgid ""
+"Define RADIUS server instances. Each server listens for authentication "
+"requests."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:26
-msgid "Example Form Configuration."
-msgstr "Voorbeeld form configuratie."
+#: htdocs/luci-static/resources/view/radius-mac/config.js:69
+msgid ""
+"Define client devices by their MAC addresses and assign them to a server and "
+"optionally a VLAN."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/htmlview.js:18
-msgid "Example HTML Page"
-msgstr "Voorbeeld HTML pagina"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:139
+msgid "Description"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:31
-msgid "First Option"
-msgstr "Eerste optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:143
+msgid "Description must be between 1 and 256 characters."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:37
-msgid "Flag Option"
-msgstr "Vlag optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:26
+msgid "Enabled"
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/luci/menu.d/luci-app-example.json:14
-msgid "Form View"
-msgstr "Formulier zicht"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:31
+msgid ""
+"IP address the RADIUS server should listen on. Use 0.0.0.0 for all "
+"interfaces."
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/rpcd/acl.d/luci-app-example.json:3
-msgid "Grant UCI and RPC access to LuCI app example"
-msgstr "Toestemmen dat UCI en RPC toegang hebben tot LuCI app voorbeeld"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:30
+msgid "Listen Address"
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/luci/menu.d/luci-app-example.json:23
-msgid "HTML Page"
-msgstr "HTML pagina"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:130
+msgid "MAC Address"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:53
-msgid "Input for a password (storage on disk is not encrypted)"
-msgstr "Invoer voor een wachtwoord (opslag op disk is leesbaar)"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:133
+msgid "MAC address is required."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:32
-msgid "Input for the first option"
-msgstr "Invoer voor de eerste optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:140
+msgid "Optional: A descriptive name for this client device."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:59
-msgid "Is this real?"
-msgstr "Is dit echt?"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:148
+msgid "Optional: Specific VLAN ID for this client. Overrides server default."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:127
-msgid "JSON converted to table via array building and loop"
-msgstr "JSON omgezet naar tabel via reeks bouwen en herhalen"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:57
+msgid ""
+"Optional: VLAN ID assigned to clients if no specific VLAN is configured for "
+"their MAC address."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-tablesection.js:59
-msgid "JSONMap TableSection Sample"
-msgstr "JSONMap TabelSectie Proef"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:98
+msgid "Populate from DHCP Static Lease"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-typedsection.js:59
-msgid "JSONMap TypedSection Sample"
-msgstr "JSONMap TypedSectie Proef"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:38
+msgid "Port"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:59
-msgid "No"
-msgstr "Nee"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:43
+msgid "Port is required."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:86
-msgid "Not found"
-msgstr "Niet gevonden"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:13
+#: root/usr/share/luci/menu.d/luci-app-radius-mac.json:3
+msgid "RADIUS MAC Authentication"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-tablesection.js:73
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-typedsection.js:73
-msgid "Option name"
-msgstr "Optie naam"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:68
+msgid "RADIUS Clients (Devices)"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-tablesection.js:74
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-typedsection.js:74
-msgid "Option value"
-msgstr "Optie waarde"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:20
+msgid "RADIUS Servers"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:57
-msgid "Parakeets"
-msgstr "Parkieten"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:50
+msgid "Secret is required."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:52
-msgid "Password Option"
-msgstr "Wachtwoord optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:52
+msgid "Secret must be between 1 and 256 characters."
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/luci/menu.d/luci-app-example.json:32
-msgid "RPC Array Example"
-msgstr "RPC reeks voorbeeld"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:99
+msgid ""
+"Select a device from DHCP static leases to auto-fill MAC address and "
+"description fields."
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/luci/menu.d/luci-app-example.json:41
-msgid "RPC JSONMap Table Example"
-msgstr "RPC JSONMap tabel voorbeeld"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:76
+msgid ""
+"Select the RADIUS server instance this client device authenticates against."
+msgstr ""
 
-#: applications/luci-app-example/root/usr/share/luci/menu.d/luci-app-example.json:50
-msgid "RPC JSONMap Typed Example"
-msgstr "RPC JSONMap typed voorbeeld"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:79
+msgid "Server: %s"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-tablesection.js:35
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-typedsection.js:35
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:34
-msgid "RPC call failure:"
-msgstr "RPC aanroep mislukt:"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:82
+msgid "Server association is required."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:125
-msgid "Sample JS via RPC"
-msgstr "Voorbeeld JS via RPC"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:46
+msgid "Shared Secret"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-tablesection.js:60
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc-jsonmap-typedsection.js:60
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:112
-msgid "See browser console for raw data"
-msgstr "Zie browser console voor ruwe data"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:47
+msgid ""
+"Shared secret used to authenticate communication with the NAS (e.g., access "
+"point)."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:42
-msgid "Select Option"
-msgstr "Selecteer optie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:39
+msgid "UDP port the RADIUS server should listen on."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:58
-msgid "Should be \"Not found\""
-msgstr "Verwacht \"Niet gevonden\""
+#: htdocs/luci-static/resources/view/radius-mac/config.js:91
+msgid "Unnamed Host"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/rpc.js:59
-msgid "Yes"
-msgstr "Ja"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:147
+#: htdocs/luci-static/resources/view/radius-mac/config.js:63
+msgid "VLAN ID must be a number between 1 and 4094."
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:28
-msgid "first section"
-msgstr "eerste sectie"
+#: htdocs/luci-static/resources/view/radius-mac/config.js:147
+msgid "VLAN ID"
+msgstr ""
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:34
-msgid "second section"
-msgstr "tweede sectie"
+#~ msgid "A boolean option"
+#~ msgstr "Een booleaanse optie"
 
-#: applications/luci-app-example/htdocs/luci-static/resources/view/example/form.js:50
-msgid "third section"
-msgstr "derde sectie"
+#~ msgid "A select option"
+#~ msgstr "Een select optie"
+
+#~ msgid "Cats"
+#~ msgstr "Katten"
+
+#~ msgid "Description for this table section"
+#~ msgstr "Beschrijving voor deze tabel sectie"
+
+#~ msgid "Description for this typed section"
+#~ msgstr "Beschrijving voor deze typed sectie"
+
+#~ msgid "Dogs"
+#~ msgstr "Honden"
+
+#~ msgid "Dynamic list option"
+#~ msgstr "Dynamische lijst optie"
+
+#~ msgid "Example"
+#~ msgstr "Voorbeeld"
+
+#~ msgid "Example Form"
+#~ msgstr "Voorbeeld formulier"
+
+#~ msgid "Example Form Configuration."
+#~ msgstr "Voorbeeld form configuratie."
+
+#~ msgid "Example HTML Page"
+#~ msgstr "Voorbeeld HTML pagina"
+
+#~ msgid "First Option"
+#~ msgstr "Eerste optie"
+
+#~ msgid "Flag Option"
+#~ msgstr "Vlag optie"
+
+#~ msgid "Form View"
+#~ msgstr "Formulier zicht"
+
+#~ msgid "Grant UCI and RPC access to LuCI app example"
+#~ msgstr "Toestemmen dat UCI en RPC toegang hebben tot LuCI app voorbeeld"
+
+#~ msgid "HTML Page"
+#~ msgstr "HTML pagina"
+
+#~ msgid "Input for a password (storage on disk is not encrypted)"
+#~ msgstr "Invoer voor een wachtwoord (opslag op disk is leesbaar)"
+
+#~ msgid "Input for the first option"
+#~ msgstr "Invoer voor de eerste optie"
+
+#~ msgid "Is this real?"
+#~ msgstr "Is dit echt?"
+
+#~ msgid "JSON converted to table via array building and loop"
+#~ msgstr "JSON omgezet naar tabel via reeks bouwen en herhalen"
+
+#~ msgid "JSONMap TableSection Sample"
+#~ msgstr "JSONMap TabelSectie Proef"
+
+#~ msgid "JSONMap TypedSection Sample"
+#~ msgstr "JSONMap TypedSectie Proef"
+
+#~ msgid "No"
+#~ msgstr "Nee"
+
+#~ msgid "Not found"
+#~ msgstr "Niet gevonden"
+
+#~ msgid "Option name"
+#~ msgstr "Optie naam"
+
+#~ msgid "Option value"
+#~ msgstr "Optie waarde"
+
+#~ msgid "Parakeets"
+#~ msgstr "Parkieten"
+
+#~ msgid "Password Option"
+#~ msgstr "Wachtwoord optie"
+
+#~ msgid "RPC Array Example"
+#~ msgstr "RPC reeks voorbeeld"
+
+#~ msgid "RPC JSONMap Table Example"
+#~ msgstr "RPC JSONMap tabel voorbeeld"
+
+#~ msgid "RPC JSONMap Typed Example"
+#~ msgstr "RPC JSONMap typed voorbeeld"
+
+#~ msgid "RPC call failure:"
+#~ msgstr "RPC aanroep mislukt:"
+
+#~ msgid "Sample JS via RPC"
+#~ msgstr "Voorbeeld JS via RPC"
+
+#~ msgid "See browser console for raw data"
+#~ msgstr "Zie browser console voor ruwe data"
+
+#~ msgid "Select Option"
+#~ msgstr "Selecteer optie"
+
+#~ msgid "Should be \"Not found\""
+#~ msgstr "Verwacht \"Niet gevonden\""
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "first section"
+#~ msgstr "eerste sectie"
+
+#~ msgid "second section"
+#~ msgstr "tweede sectie"
+
+#~ msgid "third section"
+#~ msgstr "derde sectie"
