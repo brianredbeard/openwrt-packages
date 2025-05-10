@@ -31,7 +31,7 @@ return view.extend({
         s.sortable = true;
         s.extedit = false; // No separate edit page for simple sections
 
-        o = s.option(form.Flag, 'enabled', _('Enabled'));
+        o = s.option(form.Flag, 'enable', _('Enabled')); // Changed 'enabled' to 'enable'
         o.default = o.disabled; // '0'
         o.rmempty = false;
 
