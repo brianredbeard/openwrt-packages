@@ -1,4 +1,4 @@
-# Copyright (C) 2025 Your Name <your.email@example.com>
+# Copyright (C) 2025 Brian 'redbeard' Harrington <redbeard@dead-city.org>
 # This file is distributed under the same license as the luci-app-radius-mac package.
 # FULL NAME <EMAIL@ADDRESS>, 2025.
 #

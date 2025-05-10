@@ -1,5 +1,5 @@
 # Makefile for luci-app-radius-mac
-# Copyright (C) 2025 Your Name <your.email@example.com>
+# Copyright (C) 2025 Brian 'redbeard' Harrington <redbeard@dead-city.org>
 # This is free software, licensed under the Apache-2.0 License.
 
 include $(TOPDIR)/rules.mk
@@ -13,7 +13,7 @@ PKG_VERSION:=1.0
 PKG_RELEASE:=1
 
 # Use your name and email
-PKG_MAINTAINER:=Your Name <your.email@example.com>
+PKG_MAINTAINER:=Brian 'redbeard' Harrington <redbeard@dead-city.org>
 # Choose a license, Apache-2.0 is common for LuCI apps
 PKG_LICENSE:=Apache-2.0
 
