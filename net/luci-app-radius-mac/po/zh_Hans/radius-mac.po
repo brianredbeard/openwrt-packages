@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: luci-app-radius-mac\n"
 "POT-Creation-Date: 2025-05-10 10:00+0000\n"
-"PO-Revision-Date: 2023-12-08 01:52+0000\n"
+"PO-Revision-Date: 2025-05-10 10:00+0000\n"
 "Last-Translator: Eric <zxmegaxqug@hldrive.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"openwrt/luciapplicationsexample/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/openwrt/luci-app-radius-mac/zh_Hans/>\n"
 "Language: zh-Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,295 +13,169 @@ msgstr ""
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:102
 msgid "-- Manual Entry / Do Not Populate --"
-msgstr ""
+msgstr "-- 手动输入 / 请勿填写 --"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:60
 msgid "1-4094, or empty"
-msgstr ""
+msgstr "1-4094，或留空"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:151
 msgid "1-4094, or empty for server default"
-msgstr ""
+msgstr "1-4094，或留空以使用服务器默认值"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:35
 msgid "Address is required."
-msgstr ""
+msgstr "地址为必填项。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:75
 msgid "Associated Server"
-msgstr ""
+msgstr "关联服务器"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:101
 msgid "Click to select a device..."
-msgstr ""
+msgstr "点击选择设备..."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:14
 msgid ""
 "Configure RADIUS MAC authentication servers and client devices. Changes take "
 "effect after the radius-mac service is enabled and (re)started."
-msgstr ""
+msgstr "配置 RADIUS MAC 认证服务器和客户端设备。更改在 radius-mac 服务启用并（重新）启动后生效。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:56
 msgid "Default VLAN ID"
-msgstr ""
+msgstr "默认 VLAN ID"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:21
 msgid ""
 "Define RADIUS server instances. Each server listens for authentication "
 "requests."
-msgstr ""
+msgstr "定义 RADIUS 服务器实例。每个服务器侦听认证请求。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:69
 msgid ""
 "Define client devices by their MAC addresses and assign them to a server and "
 "optionally a VLAN."
-msgstr ""
+msgstr "通过 MAC 地址定义客户端设备，并将其分配给服务器和（可选）VLAN。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:139
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:143
 msgid "Description must be between 1 and 256 characters."
-msgstr ""
+msgstr "描述必须介于 1 到 256 个字符之间。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:26
 msgid "Enabled"
-msgstr ""
+msgstr "已启用"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:31
 msgid ""
 "IP address the RADIUS server should listen on. Use 0.0.0.0 for all "
 "interfaces."
-msgstr ""
+msgstr "RADIUS 服务器应侦听的 IP 地址。所有接口请使用 0.0.0.0。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:30
 msgid "Listen Address"
-msgstr ""
+msgstr "侦听地址"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:130
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC 地址"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:133
 msgid "MAC address is required."
-msgstr ""
+msgstr "MAC 地址为必填项。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:140
 msgid "Optional: A descriptive name for this client device."
-msgstr ""
+msgstr "可选：此客户端设备的描述性名称。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:148
 msgid "Optional: Specific VLAN ID for this client. Overrides server default."
-msgstr ""
+msgstr "可选：此客户端的特定 VLAN ID。覆盖服务器默认值。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:57
 msgid ""
 "Optional: VLAN ID assigned to clients if no specific VLAN is configured for "
 "their MAC address."
-msgstr ""
+msgstr "可选：如果未为客户端的 MAC 地址配置特定 VLAN，则分配给客户端的 VLAN ID。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:98
 msgid "Populate from DHCP Static Lease"
-msgstr ""
+msgstr "从 DHCP 静态租约填充"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:38
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:43
 msgid "Port is required."
-msgstr ""
+msgstr "端口为必填项。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:13
 #: root/usr/share/luci/menu.d/luci-app-radius-mac.json:3
 msgid "RADIUS MAC Authentication"
-msgstr ""
+msgstr "RADIUS MAC 认证"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:68
 msgid "RADIUS Clients (Devices)"
-msgstr ""
+msgstr "RADIUS 客户端（设备）"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:20
 msgid "RADIUS Servers"
-msgstr ""
+msgstr "RADIUS 服务器"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:50
 msgid "Secret is required."
-msgstr ""
+msgstr "密钥为必填项。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:52
 msgid "Secret must be between 1 and 256 characters."
-msgstr ""
+msgstr "密钥必须介于 1 到 256 个字符之间。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:99
 msgid ""
 "Select a device from DHCP static leases to auto-fill MAC address and "
 "description fields."
-msgstr ""
+msgstr "从 DHCP 静态租约中选择设备以自动填充 MAC 地址和描述字段。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:76
 msgid ""
 "Select the RADIUS server instance this client device authenticates against."
-msgstr ""
+msgstr "选择此客户端设备用于认证的 RADIUS 服务器实例。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:79
 msgid "Server: %s"
-msgstr ""
+msgstr "服务器：%s"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:82
 msgid "Server association is required."
-msgstr ""
+msgstr "服务器关联为必填项。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:46
 msgid "Shared Secret"
-msgstr ""
+msgstr "共享密钥"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:47
 msgid ""
 "Shared secret used to authenticate communication with the NAS (e.g., access "
 "point)."
-msgstr ""
+msgstr "用于向 NAS（例如接入点）认证通信的共享密钥。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:39
 msgid "UDP port the RADIUS server should listen on."
-msgstr ""
+msgstr "RADIUS 服务器应侦听的 UDP 端口。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:91
 msgid "Unnamed Host"
-msgstr ""
+msgstr "未命名主机"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 #: htdocs/luci-static/resources/view/radius-mac/config.js:63
 msgid "VLAN ID must be a number between 1 and 4094."
-msgstr ""
+msgstr "VLAN ID 必须是 1 到 4094 之间的数字。"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 msgid "VLAN ID"
-msgstr ""
-
-#~ msgid "A boolean option"
-#~ msgstr "布尔选项"
-
-#~ msgid "A select option"
-#~ msgstr "选择选项"
-
-#~ msgid "Cats"
-#~ msgstr "Cats"
-
-#~ msgid "Description for this table section"
-#~ msgstr "此表格部分的描述"
-
-#~ msgid "Description for this typed section"
-#~ msgstr "此输入部分的描述"
-
-#~ msgid "Dogs"
-#~ msgstr "Dogs"
-
-#~ msgid "Dynamic list option"
-#~ msgstr "动态列表选项"
-
-#~ msgid "Example"
-#~ msgstr "示例"
-
-#~ msgid "Example Form"
-#~ msgstr "示例表单"
-
-#~ msgid "Example Form Configuration."
-#~ msgstr "示例表单配置。"
-
-#~ msgid "Example HTML Page"
-#~ msgstr "示例 HTML 页面"
-
-#~ msgid "First Option"
-#~ msgstr "第一个选项"
-
-#~ msgid "Flag Option"
-#~ msgstr "标记选项"
-
-#~ msgid "Form View"
-#~ msgstr "表单视图"
-
-#~ msgid "Grant UCI and RPC access to LuCI app example"
-#~ msgstr "授予 UCI 和 RPC 访问 LuCI 应用示例的权限"
-
-#~ msgid "HTML Page"
-#~ msgstr "HTML 页面"
-
-#~ msgid "Input for a password (storage on disk is not encrypted)"
-#~ msgstr "输入密码（存储在磁盘上，未加密）"
-
-#~ msgid "Input for the first option"
-#~ msgstr "第一个选项的输入"
-
-#~ msgid "Is this real?"
-#~ msgstr "这是真的吗？"
-
-#~ msgid "JSON converted to table via array building and loop"
-#~ msgstr "通过数组构建和循环将 JSON 转换到了表格"
-
-#~ msgid "JSONMap TableSection Sample"
-#~ msgstr "JSONMap TableSection 样本"
-
-#~ msgid "JSONMap TypedSection Sample"
-#~ msgstr "JSONMap TypedSection 样本"
-
-#~ msgid "No"
-#~ msgstr "否"
-
-#~ msgid "Not found"
-#~ msgstr "未找到"
-
-#~ msgid "Option name"
-#~ msgstr "选项名"
-
-#~ msgid "Option value"
-#~ msgstr "选项值"
-
-#~ msgid "Parakeets"
-#~ msgstr "Parakeets"
-
-#~ msgid "Password Option"
-#~ msgstr "密码选项"
-
-#~ msgid "RPC Array Example"
-#~ msgstr "RPC 数组示例"
-
-#~ msgid "RPC JSONMap Table Example"
-#~ msgstr "RPC JSONMap 表格示例"
-
-#~ msgid "RPC JSONMap Typed Example"
-#~ msgstr "RPC JSONMap Typed 示例"
-
-#~ msgid "RPC call failure:"
-#~ msgstr "RPC 调用失败："
-
-#~ msgid "Sample JS via RPC"
-#~ msgstr "JS via RPC 的样本"
-
-#~ msgid "See browser console for raw data"
-#~ msgstr "原始数据见浏览器控制台"
-
-#~ msgid "Select Option"
-#~ msgstr "选择选项"
-
-#~ msgid "Should be \"Not found\""
-#~ msgstr "应为“未找到”"
-
-#~ msgid "Yes"
-#~ msgstr "是"
-
-#~ msgid "first section"
-#~ msgstr "第一部分"
-
-#~ msgid "second section"
-#~ msgstr "第二部分"
-
-#~ msgid "third section"
-#~ msgstr "第三部分"
-
-#~ msgid "Grant UCI access to LuCI app example"
-#~ msgstr "授权 LuCI 应用样例访问 UCI"
-
-#~ msgid "Grant UCI access to LuCI app ecample"
-#~ msgstr "授予 LuCI app example UCI 访问权限"
+msgstr "VLAN ID"
