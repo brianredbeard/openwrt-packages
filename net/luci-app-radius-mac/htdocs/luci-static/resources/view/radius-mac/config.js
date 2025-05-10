@@ -103,28 +103,44 @@ return view.extend({
         // Collect existing VLAN IDs from network configuration
         let existing_vlans = {};
         uci.sections('network', 'device', function(device_section) {
+            // Primarily look for devices of type 802.1q which explicitly define a VLAN ID
             if (device_section.type === '8021q' && device_section.vid) {
-                existing_vlans[device_section.vid] = device_section.vid;
-            } else if (device_section.vid) { // For other device types that might have a VID
-                 existing_vlans[device_section.vid] = device_section.vid;
+                let vid = parseInt(device_section.vid, 10);
+                if (vid >= 1 && vid <= 4094) {
+                    existing_vlans[vid] = String(vid);
+                }
             }
-            // Also consider names like eth0.10, br-lan.10
-            if (device_section['.name']) {
-                const match = device_section['.name'].match(/\.(\d+)$/);
-                if (match && match[1]) {
-                     let vid = parseInt(match[1], 10);
-                     if (vid >= 1 && vid <= 4094) {
-                        existing_vlans[vid] = vid;
-                     }
+            // Also consider device names that follow common VLAN sub-interface naming (e.g., eth0.10, br-lan.20)
+            // This is a heuristic and might need adjustment based on common practices.
+            if (device_section['.name'] && typeof device_section['.name'] === 'string') {
+                const parts = device_section['.name'].split('.');
+                if (parts.length > 1) {
+                    let vid_candidate = parseInt(parts[parts.length - 1], 10);
+                    // Check if the base part of the name (e.g., 'eth0', 'br-lan') exists as a device or bridge
+                    // This helps avoid misinterpreting things like IP addresses or version numbers in names.
+                    // For simplicity here, we'll just check if it's a plausible VLAN ID.
+                    if (vid_candidate >= 1 && vid_candidate <= 4094) {
+                         // To avoid adding device names that are not actual VLAN interfaces (e.g. 'group1.10' if 'group1' is not a base interface)
+                         // we rely on the type '8021q' or explicit 'vid' option as more reliable sources.
+                         // This part can be made more robust if needed by checking if parts[0] is a known base interface.
+                         // For now, we'll be a bit more restrictive to avoid false positives.
+                         // Only add if the device type is bridge or if it's a common ethernet type.
+                        if (device_section.type === 'bridge' || device_section['.type'] === 'device' && (device_section.ifname || device_section.name)) {
+                             // This logic is still a bit broad. Prefer explicit vid or 8021q type.
+                             // Let's only add if we are reasonably sure it's a VLAN sub-interface.
+                             // A more robust way would be to check if parts[0] is a valid physical or bridge interface.
+                             // For now, we'll add it if it looks like a VLAN ID and the base device is a bridge.
+                            if (device_section.type === 'bridge' && parts.length > 1 && /^[a-zA-Z0-9_-]+$/.test(parts[0])) {
+                                 existing_vlans[vid_candidate] = String(vid_candidate);
+                            }
+                        }
+                    }
                 }
             }
         });
-         uci.sections('network', 'interface', function(iface_section) {
-            if (iface_section.vlan) { // some setups might define vlan on interface
-                existing_vlans[iface_section.vlan] = iface_section.vlan;
-            }
-        });
-
+        // The interface section 'vlan' option is not standard for defining selectable VLAN IDs.
+        // It's usually for specific switch configurations, not general VLAN interface definitions.
+        // Removing the uci.sections('network', 'interface', ...) loop for iface_section.vlan.
 
         // DHCP Host Selector (helper, not directly saved)
         let dhcp_static_hosts = [];
@@ -215,14 +231,17 @@ return view.extend({
             _('Optional: Specific VLAN ID for this client. Overrides server default.'));
         o.optional = true;
         o.datatype = 'uinteger'; // For custom input validation
-        o.placeholder = _('1-4094, or empty for server default');
+        o.placeholder = _('1-4094, or empty for server default'); // This placeholder is for the input field when "custom" is chosen
 
         // Populate with discovered VLANs
-        let sorted_vlan_ids = Object.keys(existing_vlans).map(Number).sort((a, b) => a - b);
-        sorted_vlan_ids.forEach(function(vid) {
-            o.value(String(vid), String(vid));
+        let sorted_vlan_ids = Object.keys(existing_vlans).map(v_id => existing_vlans[v_id]).filter(Boolean).map(Number).sort((a, b) => a - b);
+        // Remove duplicates that might have occurred if collected from multiple sources
+        let unique_sorted_vlan_ids = [...new Set(sorted_vlan_ids)];
+
+        unique_sorted_vlan_ids.forEach(function(vid_str) {
+            o.value(String(vid_str), String(vid_str)); // Add each valid, unique VLAN ID
         });
-        // DynamicList inherently allows custom values if not in the list.
+        // DynamicList inherently allows custom values if not in the list, which are then validated.
 
         o.validate = function(section_id, value) {
             if (value === "" || value == null) return true; // Empty is allowed
