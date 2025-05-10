@@ -203,9 +203,14 @@ return view.extend({
                 let desc_widget = client_section_instance.optionWidgets.description;
                 if (desc_widget && host_info.name) {
                     desc_widget.setValue(host_info.name);
+                } else if (desc_widget) {
+                    // If host_info.name is empty, you might want to clear the description
+                    // desc_widget.setValue(''); // Uncomment if clearing is desired
                 }
-                // Reset this selector to allow re-selection or to clear it
-                this.setValue(''); // 'this' refers to the ListValue widget instance (_dhcp_host_select)
+                // Note: Do not reset this.setValue('') here.
+                // The dropdown should retain the selected DHCP lease.
+                // The user can explicitly select "-- Manual Entry / Do Not Populate --"
+                // if they wish to clear the selection or enter data manually.
             };
         }
 
