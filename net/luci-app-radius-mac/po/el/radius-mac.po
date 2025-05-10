@@ -15,172 +15,172 @@ msgstr ""
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:102
 msgid "-- Manual Entry / Do Not Populate --"
-msgstr ""
+msgstr "-- Μη αυτόματη καταχώρηση / Να μην συμπληρωθεί --"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:60
 msgid "1-4094, or empty"
-msgstr ""
+msgstr "1-4094, ή κενό"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:151
 msgid "1-4094, or empty for server default"
-msgstr ""
+msgstr "1-4094, ή κενό για προεπιλογή διακομιστή"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:35
 msgid "Address is required."
-msgstr ""
+msgstr "Η διεύθυνση είναι υποχρεωτική."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:75
 msgid "Associated Server"
-msgstr ""
+msgstr "Συσχετισμένος διακομιστής"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:101
 msgid "Click to select a device..."
-msgstr ""
+msgstr "Κάντε κλικ για να επιλέξετε μια συσκευή..."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:14
 msgid ""
 "Configure RADIUS MAC authentication servers and client devices. Changes take "
 "effect after the radius-mac service is enabled and (re)started."
-msgstr ""
+msgstr "Διαμορφώστε διακομιστές ελέγχου ταυτότητας RADIUS MAC και συσκευές-πελάτες. Οι αλλαγές τίθενται σε ισχύ μετά την ενεργοποίηση και (επαν)εκκίνηση της υπηρεσίας radius-mac."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:56
 msgid "Default VLAN ID"
-msgstr ""
+msgstr "Προεπιλεγμένο VLAN ID"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:21
 msgid ""
 "Define RADIUS server instances. Each server listens for authentication "
 "requests."
-msgstr ""
+msgstr "Ορίστε παρουσίες διακομιστή RADIUS. Κάθε διακομιστής ακούει για αιτήματα ελέγχου ταυτότητας."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:69
 msgid ""
 "Define client devices by their MAC addresses and assign them to a server and "
 "optionally a VLAN."
-msgstr ""
+msgstr "Ορίστε συσκευές-πελάτες από τις διευθύνσεις MAC τους και αναθέστε τις σε έναν διακομιστή και προαιρετικά σε ένα VLAN."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:139
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:143
 msgid "Description must be between 1 and 256 characters."
-msgstr ""
+msgstr "Η περιγραφή πρέπει να είναι μεταξύ 1 και 256 χαρακτήρων."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:26
 msgid "Enabled"
-msgstr ""
+msgstr "Ενεργοποιημένο"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:31
 msgid ""
 "IP address the RADIUS server should listen on. Use 0.0.0.0 for all "
 "interfaces."
-msgstr ""
+msgstr "Διεύθυνση IP στην οποία θα πρέπει να ακούει ο διακομιστής RADIUS. Χρησιμοποιήστε 0.0.0.0 για όλες τις διεπαφές."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:30
 msgid "Listen Address"
-msgstr ""
+msgstr "Διεύθυνση ακρόασης"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:130
 msgid "MAC Address"
-msgstr ""
+msgstr "Διεύθυνση MAC"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:133
 msgid "MAC address is required."
-msgstr ""
+msgstr "Η διεύθυνση MAC είναι υποχρεωτική."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:140
 msgid "Optional: A descriptive name for this client device."
-msgstr ""
+msgstr "Προαιρετικό: Ένα περιγραφικό όνομα για αυτήν τη συσκευή-πελάτη."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:148
 msgid "Optional: Specific VLAN ID for this client. Overrides server default."
-msgstr ""
+msgstr "Προαιρετικό: Συγκεκριμένο VLAN ID για αυτόν τον πελάτη. Παρακάμπτει την προεπιλογή του διακομιστή."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:57
 msgid ""
 "Optional: VLAN ID assigned to clients if no specific VLAN is configured for "
 "their MAC address."
-msgstr ""
+msgstr "Προαιρετικό: VLAN ID που εκχωρείται σε πελάτες εάν δεν έχει διαμορφωθεί συγκεκριμένο VLAN για τη διεύθυνση MAC τους."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:98
 msgid "Populate from DHCP Static Lease"
-msgstr ""
+msgstr "Συμπλήρωση από στατική μίσθωση DHCP"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:38
 msgid "Port"
-msgstr ""
+msgstr "Θύρα"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:43
 msgid "Port is required."
-msgstr ""
+msgstr "Η θύρα είναι υποχρεωτική."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:13
 #: root/usr/share/luci/menu.d/luci-app-radius-mac.json:3
 msgid "RADIUS MAC Authentication"
-msgstr ""
+msgstr "Έλεγχος ταυτότητας RADIUS MAC"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:68
 msgid "RADIUS Clients (Devices)"
-msgstr ""
+msgstr "Πελάτες RADIUS (Συσκευές)"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:20
 msgid "RADIUS Servers"
-msgstr ""
+msgstr "Διακομιστές RADIUS"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:50
 msgid "Secret is required."
-msgstr ""
+msgstr "Το μυστικό είναι υποχρεωτικό."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:52
 msgid "Secret must be between 1 and 256 characters."
-msgstr ""
+msgstr "Το μυστικό πρέπει να είναι μεταξύ 1 και 256 χαρακτήρων."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:99
 msgid ""
 "Select a device from DHCP static leases to auto-fill MAC address and "
 "description fields."
-msgstr ""
+msgstr "Επιλέξτε μια συσκευή από τις στατικές μισθώσεις DHCP για αυτόματη συμπλήρωση των πεδίων διεύθυνσης MAC και περιγραφής."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:76
 msgid ""
 "Select the RADIUS server instance this client device authenticates against."
-msgstr ""
+msgstr "Επιλέξτε την παρουσία διακομιστή RADIUS έναντι της οποίας ελέγχεται η ταυτότητα αυτής της συσκευής-πελάτη."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:79
 msgid "Server: %s"
-msgstr ""
+msgstr "Διακομιστής: %s"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:82
 msgid "Server association is required."
-msgstr ""
+msgstr "Η συσχέτιση διακομιστή είναι υποχρεωτική."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:46
 msgid "Shared Secret"
-msgstr ""
+msgstr "Κοινόχρηστο μυστικό"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:47
 msgid ""
 "Shared secret used to authenticate communication with the NAS (e.g., access "
 "point)."
-msgstr ""
+msgstr "Κοινόχρηστο μυστικό που χρησιμοποιείται για τον έλεγχο ταυτότητας της επικοινωνίας με το NAS (π.χ. σημείο πρόσβασης)."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:39
 msgid "UDP port the RADIUS server should listen on."
-msgstr ""
+msgstr "Θύρα UDP στην οποία θα πρέπει να ακούει ο διακομιστής RADIUS."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:91
 msgid "Unnamed Host"
-msgstr ""
+msgstr "Ανώνυμος κεντρικός υπολογιστής"
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 #: htdocs/luci-static/resources/view/radius-mac/config.js:63
 msgid "VLAN ID must be a number between 1 and 4094."
-msgstr ""
+msgstr "Το VLAN ID πρέπει να είναι ένας αριθμός μεταξύ 1 και 4094."
 
 #: htdocs/luci-static/resources/view/radius-mac/config.js:147
 msgid "VLAN ID"
-msgstr ""
+msgstr "VLAN ID"
 
 #~ msgid "No"
 #~ msgstr "Όχι"
